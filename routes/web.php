@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+Route::get('/index','MemberController@index')->name('index');
+Route::get('/enter','MemberController@showEnterForm')->name('showEnterForm');
+Route::post('/enter','MemberController@store');
+Route::get('/home', 'HomeController@index')->name('home');
