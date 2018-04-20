@@ -17,8 +17,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if (Auth::guard($guard)->attempt(['name'=>$request->name,'password'=>$request->password])) {
+            return redirect('/memberList');
         }
 
         return $next($request);

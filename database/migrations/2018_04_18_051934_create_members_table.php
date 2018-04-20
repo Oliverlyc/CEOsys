@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->string('student_id',9)->index();
             $table->string('name',10);
-            $table->integer('phone_num');
+            $table->string('phone_num',11);
             
             $table->string('college',20);
             $table->string('major',20);

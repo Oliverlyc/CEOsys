@@ -20,3 +20,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+new Vue({
+    el: '#student_id_modal',
+    data:{
+        student_id:document.getElementById('student_id').innerHTML
+    }
+});
