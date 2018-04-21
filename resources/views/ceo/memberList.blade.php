@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
     <div class="col-md-6 ">{{__('报名总人数：')}}{{$count}}
-        <a href="{{ route('getList') }}"> 
+        <a href="{{ route('getList') }}" > 
             <button type="button" class="btn btn-info">{{__('下载表格')}}</button>
         </a>
     </div>

@@ -48,7 +48,8 @@ class MemberController extends Controller
 
     public function getList()
     {
-        $res = Member::select('student_id','name','college','major','phone_num')->get()->downloadExcel('inf.xls');
+        $res = Member::select('student_id','name','college','major','phone_num')->get();
+        collect($res->toArray())->downloadExcel('inf.xls');
         if($res){
             return redirect('/memberList')->with('msg','下载成功');
         }        
