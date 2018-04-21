@@ -3,9 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row">
-    <div class="col-md-6 ">{{__('报名总人数：')}}{{$count}}</div>
-        <div class="col-md-6"></div>
+    <div class="col-md-6 ">{{__('报名总人数：')}}{{$count}}
+        <a href="{{ route('getList') }}"> 
+            <button type="button" class="btn btn-info">{{__('下载表格')}}</button>
+        </a>
     </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+    @if(Session::has('msg'))
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible" role="alert">{{Session::get('msg')}}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    </div>
+    @endif
     <table class="table table-bordered">
         <thead>
             <tr class="text-md-center">

@@ -18,3 +18,4 @@ Route::get('/enter','MemberController@showEnterForm')->name('showEnterForm');
 Route::post('/enter','MemberController@store');
 Route::get('/memberList',"MemberController@showMemberList");
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/getList','MemberController@getList')->name('getList')->middleware('auth');

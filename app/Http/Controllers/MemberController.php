@@ -5,8 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
 use App\Member;
+use Maatwebsite\Excel\Excel;
 class MemberController extends Controller
 {
+    public function showEnterForm()
+    {
+        return view('ceo.form');
+    }
+
+    public function index()
+    {
+        return view('ceoIndex');
+    }
+
     public function store(MemberRequest $request)
     {
 
@@ -26,17 +37,6 @@ class MemberController extends Controller
             return redirect('/index')->with('msg','报名成功');
         }
     }
-
-    public function showEnterForm()
-    {
-        return view('ceo.form');
-    }
-
-    public function index()
-    {
-        // return view('ceo.form');
-        return view('ceoIndex');
-    }
     
     public function showMemberList()
     {
@@ -44,5 +44,13 @@ class MemberController extends Controller
         $members = $member->get();
         $count = $member->count();
         return view('ceo.memberList',['count'=>$count,'members'=>$members]);
+    }
+
+    public function getList()
+    {
+        $res = Member::select('student_id','name','college','major','phone_num')->get()->downloadExcel('inf.xls');
+        if($res){
+            return redirect('/memberList')->with('msg','下载成功');
+        }        
     }
 }
