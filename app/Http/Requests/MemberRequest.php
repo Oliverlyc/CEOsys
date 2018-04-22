@@ -26,7 +26,7 @@ class MemberRequest extends FormRequest
         return [
             'name'=>'required|string',
             'student_id'=>'required|string',
-            'student_id'=>['regex:/^[B]{1}[1]{1}[7]{1}[0-1]{1}[0-5]{1}[0-2]{1}[0-9]{1}[0-4]{1}[0-9]{1}$/'],
+            'student_id'=>['regex:/^[B]{1}[1]{7}[1]{1}[0-1]{1}[0-5]{1}[0-2]{1}[0-9]{1}[0-4]{1}[0-9]{1}$/'],
             'college'=>'required|string',
             'major'=>'required|string',
             'phone_num'=>'required|integer',
