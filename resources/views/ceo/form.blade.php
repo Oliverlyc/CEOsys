@@ -40,9 +40,9 @@
                             <label for="college" class="col-md-4 col-form-label text-md-right">{{__('学院')}}</label>
                             <div class="col-md-6">
                             <select name="college" id="college" class="form-control {{ $errors->has('college') ? ' is-invalid' : '' }}">
-                                    <option value=""></option>
-                                    <option value="通信与信息工程学院" >通信与信息工程学院</option>
-                                    <option value=""></option>
+                                    <option value="请选择学院">请选择学院</option>
+                                    <option value="通院">通院</option>
+                                    <option value="电光院">电光院</option>
                                 </select>
                                 @if ($errors->has('college'))
                                     <span class="invalid-feedback">
@@ -55,8 +55,6 @@
                             <label for="major" class="col-md-4 col-form-label text-md-right">{{__('专业')}}</label>
                             <div class="col-md-6">    
                                 <select name="major" id="major" class="form-control {{ $errors->has('major') ? ' is-invalid' : '' }}"  >
-                                    <option value=""></option>
-                                    <option value="通信工程">通信工程</option>
                                 </select>
                                 @if ($errors->has('major'))
                                     <span class="invalid-feedback">
