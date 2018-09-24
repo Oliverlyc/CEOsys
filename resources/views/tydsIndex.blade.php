@@ -11,7 +11,9 @@
                     </div>
                 @endif
                 <div class="card-body ">
-
+                    <div class="row" >
+                            <img src="http://owcjv0rtr.bkt.clouddn.com/%E9%80%9A%E9%99%A2%E7%94%B5%E8%B5%9BLOGO-PNG.png" alt="" style="width:100%;height: 100%">
+                    </div>
                     <div class="row" >
                         <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal" style="width:100%;margin-bottom:20px;">
                             {{__('比赛介绍')}}
