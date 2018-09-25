@@ -29,7 +29,6 @@ class TYDSMemberRequest extends FormRequest
             'student_id'=>['regex:/^[B]{1}[1]{1}[5-8]{1}[0-1]{1}[0-5]{1}[0-2]{1}[0-9]{1}[0-4]{1}[0-9]{1}$/'],
             'major'=>'required|string',
             'tel'=>'required|integer',
-            'tel'=>['regex:/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/'],
             'direction' => 'required|string'
         ];
     }
@@ -41,7 +40,6 @@ class TYDSMemberRequest extends FormRequest
             'name.required'=>'这里不能为空哦(～￣▽￣)～ ',
             'major.required'=>'这里不能为空哦(～￣▽￣)～ ',
             'tel.required'=>'这里不能为空哦(～￣▽￣)～ ',
-            'tel.regex'=>'手机号不符合要求哦(～￣▽￣)～ ',
             'direction.required'=>'方向不能为空哦(～￣▽￣)～ ',
         ];
     }
