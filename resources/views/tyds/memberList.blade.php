@@ -30,7 +30,7 @@
                 <th>{{__('专业')}}</th>
                 <th>{{__('联系方式')}}</th>
                 <th>{{__('方向')}}</th>
-                <th>{{__('报名时间')}}</th>
+                <th>{{__('队伍')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@
                     <td>{{$member['major']}}</th>
                     <td>{{$member['tel']}}</th>
                     <td>{{$member['direction']}}</th>
-                    <td>{{$member['created_at']}}</th>
+                    <td>{{$member['team']}}</th>
                 </tr>
             @endforeach
         </tbody>

@@ -29,4 +29,7 @@ Route::prefix('tyds2018')->group(function(){
     Route::get('/memberList',"TYDSController@showMemberList");
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/getList','TYDSController@getList')->name('getList')->middleware('auth');
+    Route::get('/team', 'TYDSController@showTeamForm')->name('showTeamForm');
+    Route::post('/team', 'TYDSController@storeTeamInfo');
 });
+Route::get('/test', 'TYDSController@judgeMemberExist');

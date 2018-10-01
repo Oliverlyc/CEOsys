@@ -21,10 +21,14 @@
                     </div>
                     <div class="row">
                         <a href="{{ route('showTYDSForm')}}" style="width:100%">
-                            <button  class="btn btn-primary" style="width:100%;">{{__('我要报名比赛')}}</button>
+                            <button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('报名比赛')}}</button>
                         </a>
                     </div>
-                    
+                    <div class="row">
+                        <a href="{{ route('showTeamForm')}}" style="width:100%">
+                            <button  class="btn btn-warning" style="width:100%;">{{__('登记队伍')}}</button>
+                        </a>
+                    </div>
 
                 </div>
             </div>

@@ -6,7 +6,10 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header" style="text-align:center;">{{ __('填写报名信息') }}</div>
-
+                @if(Session::has('msg'))
+                    <div class="alert alert-success alert-dismissible" role="alert">{{Session::get('msg')}}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                @endif
                 <div class="card-body">
                     <form method="POST" action="{{ route('showTYDSForm') }}">
                         @csrf
@@ -167,7 +170,9 @@
                         </div> --}}
                         <div class="form-group row ">
                             <div class="col-md-6 offset-md-4">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">{{__('提交信息')}}</button>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal" style="width: 100%;">{{__('提交信息')}}</button>
+                            </div>
                                 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -176,7 +181,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <label class="modal-title" id="formModalLabel">{{__('是否提交报名信息呢~~')}}</label>
+                                                <label class="modal-title" id="formModalLabel">{{__('是否提交信息呢~~')}}</label>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -188,6 +193,11 @@
                             </div>
                         </div>
                     </form>
+                <div class="col-md-6 offset-md-4">
+                    <a href="{{ route('tydsIndex')}}" style="width:100%">
+                        <button  class="btn btn-primary" style="width:100%;margin-top: -20px;">{{__('返回首页')}}</button>
+                    </a>
+                </div>
                     
                 </div>
             </div>
