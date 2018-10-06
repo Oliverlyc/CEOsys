@@ -31,5 +31,6 @@ Route::prefix('tyds2018')->group(function(){
     Route::get('/getList','TYDSController@getList')->name('getList')->middleware('auth');
     Route::get('/team', 'TYDSController@showTeamForm')->name('showTeamForm');
     Route::post('/team', 'TYDSController@storeTeamInfo');
+    Route::get('/subject', 'TYDSController@showSubjectForm')->name('showSubjectForm');
+    Route::post('/subject', 'TYDSController@storeSubjectInfo');
 });
-Route::get('/test', 'TYDSController@judgeMemberExist');

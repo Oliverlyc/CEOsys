@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-    <div class="col-md-6 ">{{__('报名总人数：')}}{{$count}}
+    <div class="col-md-6 ">{{__('个人参赛')}}
         <a href="{{ route('getList') }}" > 
             <button type="button" class="btn btn-info">{{__('下载表格')}}</button>
         </a>
@@ -26,28 +26,67 @@
                 <th>{{__('id')}}</th>
                 <th>{{__('学号')}}</th>
                 <th>{{__('姓名')}}</th>
-                <th>{{__('班级')}}</th>
+                {{--<th>{{__('班级')}}</th>--}}
                 <th>{{__('专业')}}</th>
                 <th>{{__('联系方式')}}</th>
                 <th>{{__('方向')}}</th>
-                <th>{{__('队伍')}}</th>
+                <th>{{__('赛题')}}</th>
             </tr>
         </thead>
         <tbody>
             @foreach($members as $index => $member)
                 <tr>
-                    <td>{{$index+1}}</th>
-                    <td>{{$member['student_id']}}</th>
-                    <td>{{$member['name']}}</th>
-                    <td>{{$member['class']}}</th>
-                    <td>{{$member['major']}}</th>
-                    <td>{{$member['tel']}}</th>
-                    <td>{{$member['direction']}}</th>
-                    <td>{{$member['team']}}</th>
+                    <td>{{$index+1}}</td>
+                    <td>{{$member['member']['student_id']}}</td>
+                    <td>{{$member['member']['name']}}</td>
+                    {{--<td>{{$member['class']}}</th>--}}
+                    <td>{{$member['member']['major']}}</td>
+                    <td>{{$member['member']['tel']}}</td>
+                    <td>{{$member['member']['direction']}}</td>
+                    <td>{{$member['subject']}}</td>
+
                 </tr>
             @endforeach
         </tbody>
-        
+    </table>
+    <div class="col-md-6 ">{{__('组队参赛')}}
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="text-md-center">
+            <th>{{__('id')}}</th>
+            <th>{{__('学号')}}</th>
+            <th>{{__('姓名')}}</th>
+            {{--<th>{{__('班级')}}</th>--}}
+            <th>{{__('专业')}}</th>
+            <th>{{__('联系方式')}}</th>
+            <th>{{__('方向')}}</th>
+            <th>{{__('赛题')}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($teams as $index => $team)
+            <tr>
+                <td rowspan="2">{{$index+1}}</td>
+                <td>{{$team['members'][0]['student_id']}}</td>
+                <td>{{$team['members'][0]['name']}}</td>
+                {{--<td>{{$member['class']}}</th>--}}
+                <td>{{$team['members'][0]['major']}}</td>
+                <td>{{$team['members'][0]['tel']}}</td>
+                <td>{{$team['members'][0]['direction']}}</td>
+                <td rowspan="2">{{$team['subject']}}</td>
+
+            </tr>
+            <tr>
+                <td>{{$team['members'][1]['student_id']}}</td>
+                <td>{{$team['members'][1]['name']}}</td>
+                {{--<td>{{$member['class']}}</th>--}}
+                <td>{{$team['members'][1]['major']}}</td>
+                <td>{{$team['members'][1]['tel']}}</td>
+                <td>{{$team['members'][1]['direction']}}</td>
+            </tr>
+        @endforeach
+        </tbody>
     </table>
 </div>
 
