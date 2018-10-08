@@ -99,7 +99,7 @@ class TYDSController extends Controller
             'tel' => $tel,
             ])->get();
         if($res->isEmpty()){
-            return redirect('tyds2018/index')->with('msg', '有队员尚未报名(或信息错误)，请完善个人信息');
+            return false;
         }else{
             return true;
         }
@@ -211,7 +211,7 @@ class TYDSController extends Controller
         $telA = $request->post('phone_numA');
         $studentIdB = $request->post('studentB_id');
         $telB = $request->post('phone_numB');
-        if($this->judgeMemberExist($studentIdA, $telA)&&$this->judgeMemberExist($studentIdB, $telB)){
+        if(!$this->judgeMemberExist($studentIdA, $telA)||!$this->judgeMemberExist($studentIdB, $telB)){
             return redirect('tyds2018/index')->with('msg', '有队员尚未报名(或信息错误)，请完善个人信息');
         }
         if($this->getTeamInfoByStudentIdAndTel($studentIdA, $telA) || $this->getTeamInfoByStudentIdAndTel($studentIdB, $telB)){
