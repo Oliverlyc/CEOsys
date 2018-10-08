@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\{TYDSMember, TYDSSubject, TYDSTeam};
-use App\Http\Requests\TYDSMemberRequest;
+use App\Http\Requests\{TYDSMemberRequest, TYDSTeamRequest};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class TYDSController extends Controller
@@ -205,14 +205,15 @@ class TYDSController extends Controller
 //        }
 
     }
-    public function storeTeamInfo(Request $request)
+    public function storeTeamInfo(TYDSTeamRequest $request)
     {
         $studentIdA = $request->post('studentA_id');
         $telA = $request->post('phone_numA');
         $studentIdB = $request->post('studentB_id');
         $telB = $request->post('phone_numB');
-        $this->judgeMemberExist($studentIdA, $telA);
-        $this->judgeMemberExist($studentIdB, $telB);
+        if($this->judgeMemberExist($studentIdA, $telA)&&$this->judgeMemberExist($studentIdB, $telB)){
+            return redirect('tyds2018/index')->with('msg', '有队员尚未报名(或信息错误)，请完善个人信息');
+        }
         if($this->getTeamInfoByStudentIdAndTel($studentIdA, $telA) || $this->getTeamInfoByStudentIdAndTel($studentIdB, $telB)){
             return redirect('tyds2018/index')->with('msg', '有队员已经登记队伍，请联系负责人');
         }

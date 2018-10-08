@@ -1,4 +1,4 @@
-@extends('layouts.ceo')
+@extends('layouts.tyds')
 
 @section('content')
     <div class="container">
