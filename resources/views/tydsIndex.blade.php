@@ -29,11 +29,11 @@
                             <button  class="btn btn-warning" style="width:100%;margin-bottom: 20px;">{{__('登记队伍')}}</button>
                         </a>
                     </div>
-                    {{--<div class="row">--}}
-                        {{--<a href="{{ route('showSubjectForm')}}" style="width:100%">--}}
-                            {{--<button  class="btn btn-success" style="width:100%;">{{__('选择赛题')}}</button>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
+                    <div class="row">
+                        <a href="{{ route('showSubjectForm')}}" style="width:100%">
+                            <button  class="btn btn-success" style="width:100%;">{{__('选择赛题')}}</button>
+                        </a>
+                    </div>
 
                 </div>
             </div>

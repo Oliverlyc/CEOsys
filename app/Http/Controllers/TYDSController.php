@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class TYDSController extends Controller
 {
-    const SUBJECT = ['A', 'B', 'C', 'D', 'E'];
+    const SUBJECT = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     public function index()
     {
         return view('tydsIndex');

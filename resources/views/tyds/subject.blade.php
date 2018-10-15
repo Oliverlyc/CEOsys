@@ -46,6 +46,9 @@
                                         <option value="2">C</option>
                                         <option value="3">D</option>
                                         <option value="4">E</option>
+                                        <option value="5">F</option>
+                                        <option value="6">G</option>
+                                        <option value="7">H</option>
                                     </select>
                                     @if ($errors->has('subject'))
                                         <span class="invalid-feedback">
