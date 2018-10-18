@@ -8,7 +8,7 @@ class TYDSMember extends Model
 {
     protected $table = "tydsmembers";
     protected $fillable = [
-      'name', 'student_id', 'tel', 'major', 'direction', 'class', 'gender', 'team' ,'level'
+      'name', 'student_id', 'tel', 'major', 'direction', 'class', 'gender', 'team' ,'level','subject'
     ];
 
     public function tydsTeam()

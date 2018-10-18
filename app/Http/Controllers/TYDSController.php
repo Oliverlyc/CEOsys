@@ -90,7 +90,8 @@ class TYDSController extends Controller
 
     public function getList()
     {
-        return TYDSMember::select('student_id','name','class','major','tel','direction','team')->orderBy('team')->get()->downloadExcel('inf.xls');
+//        return TYDSMember::select('student_id','name','class','major','tel','direction','team')->orderBy('team')->get()->downloadExcel('inf.xls');
+        return TYDSMember::select('student_id','name','class','major','tel','direction','team','tydsmembers.subject','b.subject as team_subject')->leftJoin('tyds_teams as b','team','=','b.id')->orderBy('team')->get()->downloadExcel('inf.xls');
     }
 
     public function judgeMemberExist($studentId, $tel) {
