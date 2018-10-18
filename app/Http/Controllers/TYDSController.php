@@ -166,7 +166,7 @@ class TYDSController extends Controller
     {
         $studentInfo = TYDSMember::select('level')->where(['student_id' => $studentId, 'tel' => $tel])->first();
         if($studentInfo == null){
-            return redirect('tyds2018/enter')->with('msg', '请先完善个人信息');
+            return redirect('tyds2018/subject')->with('msg', '请先完善个人信息');
         }
         $subjectInfo = $this->subjectInfo($subject);
         if ($subjectInfo === 'full'){

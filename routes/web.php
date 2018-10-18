@@ -33,4 +33,10 @@ Route::prefix('tyds2018')->group(function(){
     Route::post('/team', 'TYDSController@storeTeamInfo');
     Route::get('/subject', 'TYDSController@showSubjectForm')->name('showSubjectForm');
     Route::post('/subject', 'TYDSController@storeSubjectInfo');
+    Route::get('/info','TYDSInfoController@index')->name('infoIndex');
+    Route::get('/info/changeSubject', 'TYDSInfoController@showChangeSubjectForm')->name('showChangeSubjectForm');
+    Route::post('/info/changeSubject', 'TYDSInfoController@changeSubject');
+    Route::get('/info/deleteTeam', 'TYDSInfoController@showDeleteTeamForm')->name('showDeleteTeamForm');
+    Route::post('/info/deleteTeam', 'TYDSInfoController@deleteTeam');
+
 });

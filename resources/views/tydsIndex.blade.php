@@ -14,24 +14,29 @@
                     <div class="row" >
                             <img src="http://owcjv0rtr.bkt.clouddn.com/%E9%80%9A%E9%99%A2%E7%94%B5%E8%B5%9BLOGO-PNG.png" alt="" style="width:100%;height: 100%">
                     </div>
-                    <div class="row" >
-                        <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal" style="width:100%;margin-bottom:20px;">
-                            {{__('比赛介绍')}}
-                        </button>
-                    </div>
+                    {{--<div class="row" >--}}
+                        {{--<button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal" style="width:100%;margin-bottom:20px;">--}}
+                            {{--{{__('比赛介绍')}}--}}
+                        {{--</button>--}}
+                    {{--</div>--}}
                     <div class="row">
                         <a href="{{ route('showTYDSForm')}}" style="width:100%">
-                            <button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('报名比赛')}}</button>
+                            <button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('1.报名比赛')}}</button>
                         </a>
                     </div>
                     <div class="row">
                         <a href="{{ route('showTeamForm')}}" style="width:100%">
-                            <button  class="btn btn-warning" style="width:100%;margin-bottom: 20px;">{{__('登记队伍')}}</button>
+                            <button  class="btn btn-warning" style="width:100%;margin-bottom: 20px;">{{__('2.登记队伍')}}</button>
                         </a>
                     </div>
                     <div class="row">
                         <a href="{{ route('showSubjectForm')}}" style="width:100%">
-                            <button  class="btn btn-success" style="width:100%;">{{__('选择赛题')}}</button>
+                            <button  class="btn btn-success" style="width:100%;margin-bottom: 20px;">{{__('3.选择赛题')}}</button>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a href="{{ route('infoIndex')}}" style="width:100%">
+                            <button  class="btn btn-danger" style="width:100%;">{{__('4.修改信息')}}</button>
                         </a>
                     </div>
 
