@@ -8,7 +8,7 @@ class TYDSTeam extends Model
 {
     protected $table = 'tyds_teams';
     protected $fillable = [
-        'studentA_id', 'studentB_id', 'subject','level'
+        'studentA_id', 'studentB_id', 'subject','level','process','problem'
     ];
 
     public function tydsMember()

@@ -28,6 +28,9 @@ class TYDSController extends Controller
         return view('tyds.subject');
     }
 
+    public function showProcessForm(){
+        return view('tyds.process');
+    }
     public function store(TYDSMemberRequest $request)
     {
         $arr = [
@@ -65,6 +68,8 @@ class TYDSController extends Controller
             }
             return [
                 'subject' => $item->subject,
+                'process' => $item->process,
+                'problem' => $item->problem,
                 'members' => $arr
             ];
         });
@@ -75,6 +80,8 @@ class TYDSController extends Controller
 
             return [
                 'subject' => $item->tydsSubject,
+                'process' => $item->process,
+                'problem' => $item->problem,
                 'member' => [
                     'student_id' => $item->student_id,
                     'name' => $item->name,
@@ -91,7 +98,7 @@ class TYDSController extends Controller
     public function getList()
     {
 //        return TYDSMember::select('student_id','name','class','major','tel','direction','team')->orderBy('team')->get()->downloadExcel('inf.xls');
-        return TYDSMember::select('student_id','name','class','major','tel','direction','team','tydsmembers.subject','b.subject as team_subject')->leftJoin('tyds_teams as b','team','=','b.id')->orderBy('team')->get()->downloadExcel('inf.xls');
+        return TYDSMember::select('student_id','name','class','major','tel','direction','team','tydsmembers.subject','b.subject as team_subject','tydsmembers.process','tydsmembers.problem','b.process as team_process','b.problem as team_poblem')->leftJoin('tyds_teams as b','team','=','b.id')->orderBy('team')->get()->downloadExcel('inf.xls');
     }
 
     public function judgeMemberExist($studentId, $tel) {
@@ -227,4 +234,26 @@ class TYDSController extends Controller
             return redirect('tyds2018/index')->with('msg', '队伍登记成功');
         }
     }
+     public function storeProcessForm(Request $request)
+     {
+         $studentId = $request->post('student_id');
+         $tel = $request->post('phone_num');
+         $process = $request->post('process');
+         $problem = $request->post('problem');
+         if(!$this->judgeMemberExist($studentId,$tel)){
+             return redirect('tyds2018/process')->with('msg','录入失败(未登记或信息错误)');
+         }
+         $teamInfo = $this->getTeamInfoByStudentIdAndTel($studentId,$tel);
+         if($teamInfo){
+
+             $teamInfo->update(['process' => $process,'problem' => $problem]);
+             return redirect('tyds2018/index')->with('msg','提交成功');
+         }else{
+             $res = TYDSMember::where('student_id',$studentId)->update(['process' => $process, 'problem' => $problem]);
+             if ($res){
+                 return redirect('tyds2018/index')->with('msg','提交成功');
+             }
+         }
+
+     }
 }

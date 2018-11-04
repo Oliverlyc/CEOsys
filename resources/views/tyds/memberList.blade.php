@@ -31,6 +31,8 @@
                 <th>{{__('联系方式')}}</th>
                 <th>{{__('方向')}}</th>
                 <th>{{__('赛题')}}</th>
+                <th>{{__('进度报告')}}</th>
+                <th>{{__('问题')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +46,8 @@
                     <td>{{$member['member']['tel']}}</td>
                     <td>{{$member['member']['direction']}}</td>
                     <td>{{$member['subject']}}</td>
+                    <td>{{$member['process']}}</td>
+                    <td>{{$member['problem']}}</td>
 
                 </tr>
             @endforeach
@@ -62,6 +66,8 @@
             <th>{{__('联系方式')}}</th>
             <th>{{__('方向')}}</th>
             <th>{{__('赛题')}}</th>
+            <th>{{__('进度报告')}}</th>
+            <th>{{__('问题')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -75,6 +81,8 @@
                 <td>{{$team['members'][0]['tel']}}</td>
                 <td>{{$team['members'][0]['direction']}}</td>
                 <td rowspan="2">{{$team['subject']}}</td>
+                <td rowspan="2">{{$team['process']}}</td>
+                <td rowspan="2">{{$team['problem']}}</td>
 
             </tr>
             <tr>

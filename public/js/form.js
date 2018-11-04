@@ -27,3 +27,13 @@ $(function () {
                 })
             }
         })
+$(".processCount").on('input propertychange', function(){
+    var content = $(this).val();
+    var length;
+    if(content){
+        length = content.length;
+    }else{
+        length = 0;
+    }
+    $(".processNum").html('字数:'+length);
+});
