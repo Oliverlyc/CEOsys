@@ -70,6 +70,7 @@ class TYDSController extends Controller
                 'subject' => $item->subject,
                 'process' => $item->process,
                 'problem' => $item->problem,
+                'finish' => $item->finish == 1?'是':'',
                 'members' => $arr
             ];
         });
@@ -82,6 +83,7 @@ class TYDSController extends Controller
                 'subject' => $item->tydsSubject,
                 'process' => $item->process,
                 'problem' => $item->problem,
+                'finish' => $item->finish == 1?'是':'',
                 'member' => [
                     'student_id' => $item->student_id,
                     'name' => $item->name,
@@ -98,7 +100,7 @@ class TYDSController extends Controller
     public function getList()
     {
 //        return TYDSMember::select('student_id','name','class','major','tel','direction','team')->orderBy('team')->get()->downloadExcel('inf.xls');
-        return TYDSMember::select('student_id','name','class','major','tel','direction','team','tydsmembers.subject','b.subject as team_subject','tydsmembers.process','tydsmembers.problem','b.process as team_process','b.problem as team_poblem')->leftJoin('tyds_teams as b','team','=','b.id')->orderBy('team')->get()->downloadExcel('inf.xls');
+        return TYDSMember::select('student_id','name','class','major','tel','direction','team','tydsmembers.subject','b.subject as team_subject','tydsmembers.process','tydsmembers.problem','b.process as team_process','b.problem as team_poblem','finish as memeber_finish','b.finish as team_finish')->leftJoin('tyds_teams as b','team','=','b.id')->orderBy('team')->get()->downloadExcel('inf.xls');
     }
 
     public function judgeMemberExist($studentId, $tel) {

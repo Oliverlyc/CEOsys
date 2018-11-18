@@ -40,4 +40,6 @@ Route::prefix('tyds2018')->group(function(){
     Route::post('/info/deleteTeam', 'TYDSInfoController@deleteTeam');
     Route::get('/process', 'TYDSController@showProcessForm')->name('showProcessForm');
     Route::Post('/process', 'TYDSController@storeProcessForm');
+    Route::get('/finalTest', 'TYDSInfoController@showFinalTestForm')->name('showFinalTestForm');
+    Route::post('finalTest', 'TYDSInfoController@storeFinalTestForm');
 });

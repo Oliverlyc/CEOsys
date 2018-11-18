@@ -33,6 +33,7 @@
                 <th>{{__('赛题')}}</th>
                 <th>{{__('进度报告')}}</th>
                 <th>{{__('问题')}}</th>
+                <th>{{__('参加验收')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +49,7 @@
                     <td>{{$member['subject']}}</td>
                     <td>{{$member['process']}}</td>
                     <td>{{$member['problem']}}</td>
-
+                    <td>{{$member['finish']}}</td>
                 </tr>
             @endforeach
         </tbody>
@@ -68,6 +69,7 @@
             <th>{{__('赛题')}}</th>
             <th>{{__('进度报告')}}</th>
             <th>{{__('问题')}}</th>
+            <th>{{__('参加验收')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -83,7 +85,7 @@
                 <td rowspan="2">{{$team['subject']}}</td>
                 <td rowspan="2">{{$team['process']}}</td>
                 <td rowspan="2">{{$team['problem']}}</td>
-
+                <td rowspan="2">{{$team['finish']}}</td>
             </tr>
             <tr>
                 <td>{{$team['members'][1]['student_id']}}</td>

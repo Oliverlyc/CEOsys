@@ -39,9 +39,14 @@
                             {{--<button  class="btn btn-danger" style="width:100%;">{{__('4.修改信息')}}</button>--}}
                         {{--</a>--}}
                     {{--</div>--}}
+                    {{--<div class="row">--}}
+                        {{--<a href="{{ route('showProcessForm')}}" style="width:100%">--}}
+                            {{--<button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('1.进度报告')}}</button>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
                     <div class="row">
-                        <a href="{{ route('showProcessForm')}}" style="width:100%">
-                            <button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('1.进度报告')}}</button>
+                        <a href="{{ route('showFinalTestForm')}}" style="width:100%">
+                            <button  class="btn btn-primary" style="width:100%; margin-bottom: 20px;">{{__('1.作品验收登记')}}</button>
                         </a>
                     </div>
                 </div>

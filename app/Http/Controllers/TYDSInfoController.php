@@ -22,6 +22,10 @@ class TYDSInfoController extends TYDSController
         return view('tyds.deleteTeam');
     }
 
+    public function showFinalTestForm()
+    {
+        return view('tyds.finalTest');
+    }
     public function changeSubject(Request $request)
     {
         $studentId = $request->post('student_id');
@@ -69,5 +73,23 @@ class TYDSInfoController extends TYDSController
         }else{
             return redirect('tyds2018/index')->with('msg', '你还没有登记队伍(或输入信息有误)');
         }
+    }
+
+    public function storeFinalTestForm(Request $request)
+    {
+        $studentId = $request->post('student_id');
+        $tel = $request->post('phone_num');
+        $teamInfo = $this->getTeamInfoByStudentIdAndTel($studentId, $tel);
+        if($teamInfo){
+            $teamInfo->update(['finish' => 1]);
+        }else{
+            $member = $this->judgeMemberExist($studentId, $tel);
+            if($member){
+                DB::table('tydsmembers')->where(['student_id' => $studentId, 'tel' => $tel])->update(['finish' => 1]);
+            }else{
+                return redirect('tyds2018/index')->with('msg', '更新信息失败，请联系管理员');
+            }
+        }
+        return redirect('tyds2018/index')->with('msg', '信息更新成功');
     }
 }
